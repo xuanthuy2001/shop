@@ -10,7 +10,9 @@ class MainController extends Controller
 
     public function index()
     {
-        return view('layout.master');
+        return view('layout.master', [
+            'title' => 'trang admin'
+        ]);
     }
 
     /**

@@ -32,14 +32,14 @@
                            <a href="javascript: void(0);" class="side-nav-link">
                                  <i class="uil-home-alt"></i>
                                  <span class="badge badge-success float-right">4</span>
-                                 <span> Dashboards </span>
+                                 <span> Users </span>
                            </a>
                            <ul class="side-nav-second-level" aria-expanded="false">
                                  <li>
-                                       <a href="dashboard-analytics.html">Analytics</a>
+                                       <a href="admin/menus/add">thêm danh mục</a>
                                  </li>
                                  <li>
-                                       <a href="dashboard-crm.html">CRM</a>
+                                       <a href="admin/menus/list">danh sách danh mục</a>
                                  </li>
                                  <li>
                                        <a href="index.html">Ecommerce</a>

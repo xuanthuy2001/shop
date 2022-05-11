@@ -16,6 +16,7 @@
 
             <div class="content-page">
                   <div class="content">
+                        @include('layout.alert')
                         @include('layout.topbar')
                         <div class="container-fluid">
                               @yield('content')
@@ -42,6 +43,8 @@
       <!-- demo app -->
       <script src="{{asset('template/assets/js/pages/demo.dashboard.js')}}"></script>
       <!-- end demo js-->
+      @yield('footer')
+
 </body>
 
 </html>
