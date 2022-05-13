@@ -17,6 +17,7 @@ class MenuService
 
       public function create($request)
       {
+            // viết hoa chữ cái đầu 
             $Name = Str::title($request->input('name'));
 
             try {
@@ -33,5 +34,9 @@ class MenuService
                   return false;
             }
             return true;
+      }
+      public function getAll()
+      {
+            return Menu::orderbyDesc('id')->paginate('20');
       }
 }

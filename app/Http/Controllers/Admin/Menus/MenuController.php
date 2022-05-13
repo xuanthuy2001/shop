@@ -20,13 +20,14 @@ class MenuController extends Controller
 
     public function index()
     {
-        //
+        return view('layout.admin.menu.list', [
+            'title' => 'trang danh sách danh mục',
+            'menus' => $this->menuService->getAll()
+        ]);
     }
 
     public function create()
     {
-
-
         return view('layout.admin.menu.add', [
             'title' => 'trang thêm danh mục',
             'menus' => $this->menuService->getParent()

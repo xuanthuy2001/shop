@@ -36,10 +36,10 @@
                            </a>
                            <ul class="side-nav-second-level" aria-expanded="false">
                                  <li>
-                                       <a href="admin/menus/add">thêm danh mục</a>
+                                       <a href="{{route('add')}}">thêm danh mục</a>
                                  </li>
                                  <li>
-                                       <a href="admin/menus/list">danh sách danh mục</a>
+                                       <a href="{{route('list')}}">danh sách danh mục</a>
                                  </li>
                                  <li>
                                        <a href="index.html">Ecommerce</a>
