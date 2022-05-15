@@ -13,7 +13,7 @@ class MenuFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'parent_id' => $this->faker->randomElement(['1', '2']),
+            'parent_id' => $this->faker->randomElement(['0', '1', '2']),
             'description' => $this->faker->address(),
             'content' => $this->faker->phoneNumber(),
             'active' => $this->faker->randomElement(['0', '1']),

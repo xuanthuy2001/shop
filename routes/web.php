@@ -17,8 +17,17 @@ Route::middleware(['auth'])->group(function () {
       Route::prefix('admin')->group(function () {
             Route::get('/', [MainController::class, 'index'])->name('admin');
             Route::get('/main', [MainController::class, 'index']);
-
+            // menu
             Route::prefix('menus')->group(function () {
+                  Route::get('/add', [MenuController::class, 'create']);
+                  Route::post('/add', [MenuController::class, 'store'])->name('add');
+                  Route::get('/list', [MenuController::class, 'index'])->name('list');
+                  Route::get('edit/{menu}', [MenuController::class, 'show'])->name('show');
+                  Route::post('edit/{menu}', [MenuController::class, 'update'])->name('update');
+                  Route::DELETE('/destroy', [MenuController::class, 'destroy'])->name('destroy');
+            });
+            // product
+            Route::prefix('products')->group(function () {
                   Route::get('/add', [MenuController::class, 'create']);
                   Route::post('/add', [MenuController::class, 'store'])->name('add');
                   Route::get('/list', [MenuController::class, 'index'])->name('list');
