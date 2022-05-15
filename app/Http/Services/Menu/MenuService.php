@@ -39,4 +39,37 @@ class MenuService
       {
             return Menu::orderbyDesc('id')->paginate('20');
       }
+      public function destroy($request)
+      {
+            $id = (int)$request->input('id');
+            $menu  = Menu::where('id',  $id)->first();
+            if ($menu) {
+                  return Menu::where('id',  $id)->orWhere('parent_id', $id)->delete();
+            }
+            return  false;
+      }
+      public function update($request, $menu)
+      {
+            $Name = Str::title($request->input('name'));
+            try {
+
+                  if ($request->input('parent_id') != $menu->id) {
+                        $menu->parent_id = (int)$request->input('parent_id');
+                  }
+
+                  $menu->name = (string)$Name;
+
+                  $menu->description = (int)$request->input('description');
+                  $menu->content = (int)$request->input('content');
+                  $menu->active = (int)$request->input('active');
+                  $menu->save();
+
+                  Session::flash('success', 'sửa thành công');
+            } catch (\Exception $err) {
+                  Session::flash('error', $err->getMessage());
+                  return false;
+            }
+
+            return true;
+      }
 }

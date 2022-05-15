@@ -44,40 +44,40 @@ class MenuController extends Controller
 
     public function show(Menu $menu)
     {
-        //
+        return view('layout.admin.menu.edit', [
+            'title' => 'Chỉnh sửa danh mục' . $menu->name,
+            'menus' => $this->menuService->getParent(),
+            'menu' => $menu
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Menu $menu)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Menu $menu)
+
+    public function update(MenuRequest $request, Menu $menu)
     {
-        //
+        $this->menuService->update($request, $menu);
+
+        return redirect()->route('list');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Menu $menu)
+
+    public function destroy(Request $request)
     {
-        //
+
+        $result = $this->menuService->destroy($request);
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'message' => "xóa thành công danh mục"
+            ]);
+        }
+        return response()->json([
+            'error' => true,
+        ]);
     }
 }

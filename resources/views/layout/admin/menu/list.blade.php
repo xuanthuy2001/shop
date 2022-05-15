@@ -6,6 +6,7 @@
             <tr>
                   <th>ID</th>
                   <th>Name</th>
+                  <th>Parent_id</th>
                   <th>Active</th>
                   <th>Update</th>
                   <th>&nbsp;</th>

@@ -15,4 +15,5 @@
 <link href="{{asset('template/assets/css/app-creative.min.css')}}" rel="stylesheet" type="text/css" id="light-style" />
 <link href="{{asset('template/assets/css/app-creative-dark.min.css')}}" rel="stylesheet" type="text/css"
       id="dark-style" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @yield('head')

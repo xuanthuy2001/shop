@@ -43,6 +43,8 @@
       <!-- demo app -->
       <script src="{{asset('template/assets/js/pages/demo.dashboard.js')}}"></script>
       <!-- end demo js-->
+      <script src="{{asset('template/js/main.js')}}"></script>
+
       @yield('footer')
 
 </body>

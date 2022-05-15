@@ -45,8 +45,8 @@
 
                                     <div class="form-group">
                                           <label for="emailaddress">Email address</label>
-                                          <input class="form-control" type="email" name="email" id="emailaddress"
-                                                placeholder="Enter your email">
+                                          <input value="{{old('email')}}" class="form-control" type="email" name="email"
+                                                id="emailaddress" placeholder="Enter your email">
                                     </div>
 
 
