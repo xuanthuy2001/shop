@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Menus\MenuController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,14 +27,16 @@ Route::middleware(['auth'])->group(function () {
                   Route::post('edit/{menu}', [MenuController::class, 'update'])->name('update');
                   Route::DELETE('/destroy', [MenuController::class, 'destroy'])->name('destroy');
             });
+            Route::get('menu/api', [MenuController::class, 'api'])->name('menu.api');
+
             // product
             Route::prefix('products')->group(function () {
-                  Route::get('/add', [MenuController::class, 'create']);
-                  Route::post('/add', [MenuController::class, 'store'])->name('add');
-                  Route::get('/list', [MenuController::class, 'index'])->name('list');
-                  Route::get('edit/{menu}', [MenuController::class, 'show'])->name('show');
-                  Route::post('edit/{menu}', [MenuController::class, 'update'])->name('update');
-                  Route::DELETE('/destroy', [MenuController::class, 'destroy'])->name('destroy');
+                  Route::get('/add', [ProductController::class, 'create']);
+                  Route::post('/add', [ProductController::class, 'store'])->name('products.add');
+                  Route::get('/list', [ProductController::class, 'index'])->name('products.list');
+                  Route::get('edit/{menu}', [ProductController::class, 'show'])->name('products.show');
+                  Route::post('edit/{menu}', [ProductController::class, 'update'])->name('products.update');
+                  Route::DELETE('/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
             });
       });
 });

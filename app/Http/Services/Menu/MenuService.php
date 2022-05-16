@@ -37,7 +37,7 @@ class MenuService
       }
       public function getAll()
       {
-            return Menu::orderbyDesc('id')->paginate('20');
+            return Menu::orderbyDesc('id')->paginate('50');
       }
       public function destroy($request)
       {

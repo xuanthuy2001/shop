@@ -42,6 +42,12 @@
                                        <a href="{{route('list')}}">danh sách danh mục</a>
                                  </li>
                                  <li>
+                                       <a href="{{route('products.add')}}">thêm sản phẩm</a>
+                                 </li>
+                                 <li>
+                                       <a href="{{route('products.list')}}">danh sách sản phẩm</a>
+                                 </li>
+                                 <li>
                                        <a href="index.html">Ecommerce</a>
                                  </li>
                                  <li>

@@ -4,20 +4,20 @@
 @endsection
 @section('content')
 <div id="summernote-basic"></div>
-<form action="{{route('add')}}" method="post" class="needs-validation" novalidate>
+<form action="{{route('products.add')}}" method="post" class="needs-validation" novalidate>
       <div class="form-group mb-3">
-            <label for="validationCustom01"> tên danh mục</label>
+            <label for="validationCustom01"> tên sản phẩm</label>
             <input value="{{old('name')}}" name="name" type="text" class="form-control" id="validationCustom01"
-                  placeholder="tên danh mục">
+                  placeholder="tên sản phẩm">
             <div class="valid-feedback">
                   Looks good!
             </div>
       </div>
       <div class="form-group">
-            <label for="menu">Danh mục</label>
+            <label for="menu">Danh mục menu</label>
             <select name="parent_id" class="form-control">
-                  <option value="0">
-                        Danh mục cha
+                  <option>
+                        sản phẩm thuộc danh mục
                   </option>
                   @foreach ($menus as $menu)
                   <option value="{{ $menu ->  id  }}">{{ $menu-> name }}</option>
@@ -31,6 +31,21 @@
             <input value="{{old('content')}}" name="content" type="text" class="form-control" maxlength="25"
                   data-toggle="maxlength">
       </div>
+      <div class="row">
+            <div class="col-md-6">
+                  <div class="form-group">
+                        <label for="menu">Giá Gốc</label>
+                        <input type="number" name="price" value="{{ old('price') }}" class="form-control">
+                  </div>
+            </div>
+
+            <div class="col-md-6">
+                  <div class="form-group">
+                        <label for="menu">Giá Giảm</label>
+                        <input type="number" name="price_sale" value="{{ old('price_sale') }}" class="form-control">
+                  </div>
+            </div>
+      </div>
 
       <div class="form-group">
             <label>mô tả chi tiết</label>
@@ -39,6 +54,14 @@
 
             </textarea>
 
+      </div>
+      <div class="form-group">
+            <label for="menu">Ảnh Sản Phẩm</label>
+            <input type="file" class="form-control" id="upload">
+            <div id="image_show">
+
+            </div>
+            <input type="hidden" name="thumb" id="thumb">
       </div>
       <div class="form-group">
             <label for="">kích hoạt</label>
@@ -53,7 +76,7 @@
             </div>
       </div>
 
-      <button class="btn btn-primary" type="submit">Submit form</button>
+      <button class="btn btn-primary" type="submit">thêm sản phẩm</button>
       @csrf
 
 </form>

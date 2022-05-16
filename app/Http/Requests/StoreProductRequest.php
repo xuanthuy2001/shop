@@ -13,18 +13,26 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
+
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'parent_id' => 'required',
+            'content' => 'required',
+            'description' => 'required',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'thuộc tính :attribute không được để trống',
+            'parent_id.required' => 'thuộc tính :attribute không được để trống',
+            'content.required' => 'thuộc tính :attribute không được để trống',
+            'description.required' => 'thuộc tính :attribute không được để trống',
         ];
     }
 }

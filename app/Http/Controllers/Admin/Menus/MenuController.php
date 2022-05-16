@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Admin\Menus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MenuRequest;
 use App\http\Services\Menu\MenuService;
+
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Yajra\Datatables\Datatables;
 
 class MenuController extends Controller
 {
@@ -22,12 +25,21 @@ class MenuController extends Controller
     {
         return view('layout.admin.menu.list', [
             'title' => 'trang danh sách danh mục',
-            'menus' => $this->menuService->getAll()
+            'menus' => $this->menuService->getAll(),
+            // 'menus' => DB::table('menus')->paginate(15)
         ]);
+    }
+
+
+    public function api()
+    {
+        return Datatables::of(Menu::query())->make(true);
     }
 
     public function create()
     {
+
+
         return view('layout.admin.menu.add', [
             'title' => 'trang thêm danh mục',
             'menus' => $this->menuService->getParent()
@@ -37,6 +49,7 @@ class MenuController extends Controller
 
     public function store(MenuRequest $request)
     {
+
         $result = $this->menuService->create($request);
         return redirect()->back();
     }
