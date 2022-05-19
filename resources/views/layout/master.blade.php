@@ -43,11 +43,8 @@
       <!-- demo app -->
       <script src="{{asset('template/assets/js/pages/demo.dashboard.js')}}"></script>
       <!-- end demo js-->
-      <script src="{{asset('template/js/main.js')}}"></script>
-
-
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+      <script src="{{asset('template/js/main.js')}}"></script>
       @yield('js')
 
 </body>

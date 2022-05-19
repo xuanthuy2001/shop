@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Menus\MenuController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
                   Route::post('edit/{menu}', [MenuController::class, 'update'])->name('update');
                   Route::DELETE('/destroy', [MenuController::class, 'destroy'])->name('destroy');
             });
-            Route::get('menu/api', [MenuController::class, 'api'])->name('menu.api');
+            // Route::get('menu/api', [MenuController::class, 'api'])->name('menu.api');
 
             // product
             Route::prefix('products')->group(function () {
@@ -38,5 +39,8 @@ Route::middleware(['auth'])->group(function () {
                   Route::post('edit/{menu}', [ProductController::class, 'update'])->name('products.update');
                   Route::DELETE('/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
             });
+
+            // #Upload
+            Route::post('upload/services', [UploadController::class, 'store']);
       });
 });

@@ -36,7 +36,9 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        dd(111);
+        if ($request->has('thumb')) {
+            dd(43253534);
+        }
     }
 
 
@@ -60,7 +62,7 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id 
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)

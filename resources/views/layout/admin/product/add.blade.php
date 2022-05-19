@@ -4,7 +4,8 @@
 @endsection
 @section('content')
 <div id="summernote-basic"></div>
-<form action="{{route('products.add')}}" method="post" class="needs-validation" novalidate>
+<form action="{{route('products.add')}}" enctype="multipart/form-data" method="post" class="needs-validation"
+      novalidate>
       <div class="form-group mb-3">
             <label for="validationCustom01"> tên sản phẩm</label>
             <input value="{{old('name')}}" name="name" type="text" class="form-control" id="validationCustom01"

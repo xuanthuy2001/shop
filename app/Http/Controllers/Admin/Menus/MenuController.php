@@ -26,20 +26,18 @@ class MenuController extends Controller
         return view('layout.admin.menu.list', [
             'title' => 'trang danh sách danh mục',
             'menus' => $this->menuService->getAll(),
-            // 'menus' => DB::table('menus')->paginate(15)
+            'menus' => DB::table('menus')->paginate(15)
         ]);
     }
 
 
-    public function api()
-    {
-        return Datatables::of(Menu::query())->make(true);
-    }
+    // public function api()
+    // {
+    //     return Datatables::of(Menu::query())->make(true);
+    // }
 
     public function create()
     {
-
-
         return view('layout.admin.menu.add', [
             'title' => 'trang thêm danh mục',
             'menus' => $this->menuService->getParent()
