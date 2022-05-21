@@ -29,14 +29,13 @@ Route::middleware(['auth'])->group(function () {
                   Route::DELETE('/destroy', [MenuController::class, 'destroy'])->name('destroy');
             });
             // Route::get('menu/api', [MenuController::class, 'api'])->name('menu.api');
-
             // product
             Route::prefix('products')->group(function () {
-                  Route::get('/add', [ProductController::class, 'create']);
-                  Route::post('/add', [ProductController::class, 'store'])->name('products.add');
+                  Route::get('/add', [ProductController::class, 'create'])->name('products.add');
+                  Route::post('/add', [ProductController::class, 'store']);
                   Route::get('/list', [ProductController::class, 'index'])->name('products.list');
-                  Route::get('edit/{menu}', [ProductController::class, 'show'])->name('products.show');
-                  Route::post('edit/{menu}', [ProductController::class, 'update'])->name('products.update');
+                  Route::get('edit/{product}', [ProductController::class, 'show'])->name('products.show');
+                  Route::post('edit/{product}', [ProductController::class, 'update'])->name('products.update');
                   Route::DELETE('/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
             });
 

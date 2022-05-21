@@ -35,18 +35,36 @@
                                  <span> Users </span>
                            </a>
                            <ul class="side-nav-second-level" aria-expanded="false">
-                                 <li>
-                                       <a href="{{route('add')}}">thêm danh mục</a>
+                                 <li class="side-nav-item">
+                                       <a href="javascript: void(0);" aria-expanded="false">Danh mục
+                                             <span class="menu-arrow"></span>
+                                       </a>
+                                       <ul class="side-nav-third-level" aria-expanded="false">
+
+                                             <li>
+                                                   <a href="{{route('add')}}">thêm danh mục</a>
+                                             </li>
+                                             <li>
+                                                   <a href="{{route('list')}}">danh sách danh mục</a>
+                                             </li>
+                                       </ul>
                                  </li>
-                                 <li>
-                                       <a href="{{route('list')}}">danh sách danh mục</a>
+                                 <li class="side-nav-item">
+                                       <a href="javascript: void(0);" aria-expanded="false">sản phẩm
+                                             <span class="menu-arrow"></span>
+                                       </a>
+                                       <ul class="side-nav-third-level" aria-expanded="false">
+
+                                             <li>
+                                                   <a href="{{route('products.add')}}">thêm sản phẩm</a>
+                                             </li>
+                                             <li>
+                                                   <a href="{{route('products.list')}}">danh sách sản phẩm</a>
+                                             </li>
+                                       </ul>
                                  </li>
-                                 <li>
-                                       <a href="{{route('products.add')}}">thêm sản phẩm</a>
-                                 </li>
-                                 <li>
-                                       <a href="{{route('products.list')}}">danh sách sản phẩm</a>
-                                 </li>
+
+
                                  <li>
                                        <a href="index.html">Ecommerce</a>
                                  </li>
@@ -55,6 +73,44 @@
                                  </li>
                            </ul>
                      </li>
+                     <li class="side-nav-item">
+                           <a href="javascript: void(0);" class="side-nav-link">
+                                 <i class="uil-copy-alt"></i>
+                                 <span> Pages </span>
+                                 <span class="menu-arrow"></span>
+                           </a>
+                           <ul class="side-nav-second-level" aria-expanded="false">
+
+
+                                 <li class="side-nav-item">
+                                       <a href="javascript: void(0);" aria-expanded="false">Danh mục
+                                             <span class="menu-arrow"></span>
+                                       </a>
+                                       <ul class="side-nav-third-level" aria-expanded="false">
+
+                                             <li>
+                                                   <a href="pages-confirm-mail-2.html">Confirm Mail 2</a>
+                                             </li>
+                                       </ul>
+                                 </li>
+                                 <li class="side-nav-item">
+                                       <a href="javascript: void(0);" aria-expanded="false">Error
+                                             <span class="menu-arrow"></span>
+                                       </a>
+                                       <ul class="side-nav-third-level" aria-expanded="false">
+                                             <li>
+                                                   <a href="pages-404.html">Error 404</a>
+                                             </li>
+
+                                       </ul>
+                                 </li>
+                                 <li>
+                                       <a href="pages-starter.html">Starter Page</a>
+                                 </li>
+
+                           </ul>
+                     </li>
+
 
 
 

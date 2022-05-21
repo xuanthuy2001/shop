@@ -7,8 +7,8 @@
 <form action="{{route('products.add')}}" enctype="multipart/form-data" method="post" class="needs-validation"
       novalidate>
       <div class="form-group mb-3">
-            <label for="validationCustom01"> tên sản phẩm</label>
-            <input value="{{old('name')}}" name="name" type="text" class="form-control" id="validationCustom01"
+            <label for="validationCustom01"> </label>
+            <input value="{{$product->name}}" name="name" type="text" class="form-control" id="validationCustom01"
                   placeholder="tên sản phẩm">
             <div class="valid-feedback">
                   Looks good!
@@ -26,21 +26,21 @@
 
       <div class="form-group">
             <label>mô tả</label>
-            <input value="{{old('content')}}" name="content" type="text" class="form-control" maxlength="25"
+            <input value="{{$product->content }}" name="content" type="text" class="form-control" maxlength="25"
                   data-toggle="maxlength">
       </div>
       <div class="row">
             <div class="col-md-6">
                   <div class="form-group">
                         <label for="menu">Giá Gốc</label>
-                        <input type="number" name="price" value="{{ old('price') }}" class="form-control">
+                        <input type="number" name="price" value="{{$product->price }}" class="form-control">
                   </div>
             </div>
 
             <div class="col-md-6">
                   <div class="form-group">
                         <label for="menu">Giá Giảm</label>
-                        <input type="number" name="price_sale" value="{{ old('price_sale') }}" class="form-control">
+                        <input type="number" name="price_sale" value="{{ $product->price_sale }}" class="form-control">
                   </div>
             </div>
       </div>
@@ -48,8 +48,8 @@
       <div class="form-group">
             <label>mô tả chi tiết</label>
 
-            <textarea value="{{old('description')}}" name="description" id="editor1" rows="10" cols="80">
-
+            <textarea value="" name="description" id="editor1" rows="10" cols="80">
+            {{$product->description}}
             </textarea>
 
       </div>
@@ -57,12 +57,18 @@
             <label for="menu">Ảnh Sản Phẩm</label>
             <input type="file" class="form-control" id="upload">
             <div id="image_show">
-
+                  <a href="    {{$product->thumb}}">
+                        <img src="    {{$product->thumb}}" width="100px" alt="">
+                  </a>
             </div>
-            <input type="hidden" name="thumb" id="thumb" value="{{old('thumb')}}">
+            <input type="hidden" name="thumb" id="thumb" value="{{$product->thumb}}">
       </div>
       <div class="form-group">
             <label for="">kích hoạt</label class="custom-control custom-radio" action="">
+
+      </div>
+
+      <div class="custom-control custom-radio" action="">
             <input type="radio" value="1" name="active" id="active" class="custom-control-input" checked="">
             <label for="active" class="custom-control-label"> có </label>
       </div>
@@ -80,8 +86,6 @@
 
 @section('js')
 <script>
-// Replace the <textarea id="editor1"> with a CKEditor 4
-// instance, using default configuration.
 CKEDITOR.replace('editor1');
 </script>
 @endsection

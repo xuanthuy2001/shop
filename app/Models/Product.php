@@ -16,6 +16,11 @@ class Product extends Model
         'price',
         'price_sale',
         'active',
-        'thumb',
+        'thumb'
     ];
+    public function menu()
+    {
+        return $this->hasOne(Menu::class, 'id', 'menu_id')
+            ->withDefault(['name' => '']);
+    }
 }
