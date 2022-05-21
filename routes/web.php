@@ -35,8 +35,8 @@ Route::middleware(['auth'])->group(function () {
                   Route::post('/add', [ProductController::class, 'store']);
                   Route::get('/list', [ProductController::class, 'index'])->name('products.list');
                   Route::get('edit/{product}', [ProductController::class, 'show'])->name('products.show');
-                  Route::post('edit/{product}', [ProductController::class, 'update'])->name('products.update');
-                  Route::DELETE('/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+                  Route::post('edit/{product}', [ProductController::class, 'update']);
+                  Route::DELETE('/destroy', [ProductController::class, 'destroy']);
             });
 
             // #Upload

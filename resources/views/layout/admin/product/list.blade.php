@@ -25,10 +25,10 @@
                   <td>{!! \App\Helpers\helper::active($product->active) !!}</td>
                   <td>{{$product->updated_at}}</td>
                   <td>{{$product->content}}</td>
-                  <td>{{$product->price}}</td>
-                  <td>{{$product->price_sale}}</td>
+                  <td>{{$product->price == 0 ? 'null' : $product->price}}</td>
+                  <td>{{$product->price_sale == 0 ? 'null' : $product->price_sale}}</td>
                   <td>
-                        '<img src=" {{$product->thumb}}" width="150px">'
+                        <img src="{{$product->thumb}}" width="150px">
                   </td>
                   <td class="table-action">
                         <a href="/admin/products/edit/{{$product->id}}"> <i class="mdi mdi-pencil"></i> </a>

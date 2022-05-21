@@ -5,7 +5,7 @@ $.ajaxSetup({
 });
 
 function removeRow(id, url) {
-    if (confirm("Are you sure you want to remove")) {
+    if (confirm("bạn có chắc chắn muốn xóa")) {
         $.ajax({
             type: "DELETE",
             datatype: "JSON",

@@ -61,8 +61,7 @@
             </div>
             <input type="hidden" name="thumb" id="thumb" value="{{old('thumb')}}">
       </div>
-      <div class="form-group">
-            <label for="">kích hoạt</label class="custom-control custom-radio" action="">
+      <div class="custom-control custom-radio" action="">
             <input type="radio" value="1" name="active" id="active" class="custom-control-input" checked="">
             <label for="active" class="custom-control-label"> có </label>
       </div>

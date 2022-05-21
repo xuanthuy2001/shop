@@ -4,8 +4,7 @@
 @endsection
 @section('content')
 <div id="summernote-basic"></div>
-<form action="{{route('products.add')}}" enctype="multipart/form-data" method="post" class="needs-validation"
-      novalidate>
+<form action="" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
       <div class="form-group mb-3">
             <label for="validationCustom01"> </label>
             <input value="{{$product->name}}" name="name" type="text" class="form-control" id="validationCustom01"
@@ -18,7 +17,8 @@
             <label>Danh Mục</label>
             <select class="form-control" name="menu_id">
                   @foreach($menus as $menu)
-                  <option value="{{ $menu->id }}">{{ $menu->name }}</option>
+                  <option value="{{ $menu->id }}" {{ $product->menu_id == $menu->id ? 'selected' : '' }}>
+                        {{ $menu->name }}</option>
                   @endforeach
             </select>
       </div>
@@ -69,16 +69,18 @@
       </div>
 
       <div class="custom-control custom-radio" action="">
-            <input type="radio" value="1" name="active" id="active" class="custom-control-input" checked="">
+            <input type="radio" value="1" name="active" id="active" class="custom-control-input"
+                  {{ $product->active == 1 ? 'checked' : '' }}>
             <label for="active" class="custom-control-label"> có </label>
       </div>
       <div class="custom-control custom-radio" action="">
-            <input type="radio" value="0" name="active" id="no_active" class="custom-control-input">
+            <input type="radio" value="0" name="active" id="no_active" class="custom-control-input"
+                  {{ $product->active == 0 ? 'checked' : '' }}>
             <label for="no_active" class="custom-control-label"> không </label>
       </div>
       </div>
 
-      <button class="btn btn-primary" type="submit">thêm sản phẩm</button>
+      <button class="btn btn-primary" type="submit">sửa sản phẩm</button>
       @csrf
 
 </form>

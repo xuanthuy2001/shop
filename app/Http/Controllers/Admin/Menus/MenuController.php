@@ -47,11 +47,9 @@ class MenuController extends Controller
 
     public function store(MenuRequest $request)
     {
-
         $result = $this->menuService->create($request);
-        return redirect()->back();
+        return redirect()->route('list');
     }
-
 
     public function show(Menu $menu)
     {
@@ -62,11 +60,6 @@ class MenuController extends Controller
         ]);
     }
 
-
-    public function edit(Menu $menu)
-    {
-        //
-    }
 
 
     public function update(MenuRequest $request, Menu $menu)

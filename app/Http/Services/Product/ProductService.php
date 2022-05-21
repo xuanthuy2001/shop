@@ -27,6 +27,7 @@ class ProductService
                   Session::flash('error', 'Vui lòng nhập giá gốc');
                   return false;
             }
+            return true;
       }
       public function insert($request)
       {
@@ -42,5 +43,30 @@ class ProductService
                   return false;
             }
             return true;
+      }
+      public function update($request, $product)
+      {
+            $set_price = $this->set_price($request);
+            if ($set_price == false) return false;
+
+            try {
+                  $product->fill($request->input());
+                  $product->save();
+                  Session::flash('success', 'cập nhật sản phẩm thành công');
+            } catch (\Exception $err) {
+                  Session::flash('error', 'có lỗi vui lòng thử lại ');
+                  \Log::info($err->getMessage());
+                  return false;
+            }
+            return true;
+      }
+      public function delete($request)
+      {
+            $product = Product::where('id', $request->input('id'))->first();
+            if ($product) {
+                  $product->delete();
+                  return true;
+            }
+            return false;
       }
 }

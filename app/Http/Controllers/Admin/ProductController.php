@@ -41,7 +41,7 @@ class ProductController extends Controller
     {
         $this->productService->insert($request);
 
-        return redirect()->back();
+        return redirect()->route('products.list');
     }
 
 
@@ -54,37 +54,28 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function update(Request $request, Product $product)
     {
-        //
+        $result = $this->productService->update($request, $product);
+        if ($result) {
+            return redirect()->route('products.list');
+        }
+        return redirect()->back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $result = $this->productService->delete($request);
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'message' => 'xóa thành công sản phẩm'
+            ]);
+        }
+        return response('success')->json([
+            'error' => true
+        ]);
     }
 }
