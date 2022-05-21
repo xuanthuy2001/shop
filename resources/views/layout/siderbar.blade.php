@@ -63,6 +63,20 @@
                                              </li>
                                        </ul>
                                  </li>
+                                 <li class="side-nav-item">
+                                       <a href="javascript: void(0);" aria-expanded="false">Slider
+                                             <span class="menu-arrow"></span>
+                                       </a>
+                                       <ul class="side-nav-third-level" aria-expanded="false">
+
+                                             <li>
+                                                   <a href="{{route('sliders.add')}}">thêm Slider</a>
+                                             </li>
+                                             <li>
+                                                   <a href="{{route('sliders.list')}}">danh sách Slider</a>
+                                             </li>
+                                       </ul>
+                                 </li>
 
 
                                  <li>

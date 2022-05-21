@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Menus\MenuController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,16 @@ Route::middleware(['auth'])->group(function () {
                   Route::post('edit/{product}', [ProductController::class, 'update']);
                   Route::DELETE('/destroy', [ProductController::class, 'destroy']);
             });
+            // slider
+            Route::prefix('sliders')->group(function () {
+                  Route::get('/add', [SliderController::class, 'create'])->name('sliders.add');
+                  Route::post('/add', [SliderController::class, 'store']);
+                  Route::get('/list', [SliderController::class, 'index'])->name('sliders.list');
+                  Route::get('edit/{product}', [SliderController::class, 'show'])->name('sliders.show');
+                  Route::post('edit/{product}', [SliderController::class, 'update']);
+                  Route::DELETE('/destroy', [SliderController::class, 'destroy']);
+            });
+
 
             // #Upload
             Route::post('upload/services', [UploadController::class, 'store']);
