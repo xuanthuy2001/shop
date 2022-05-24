@@ -16,11 +16,19 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:sliders',
             'url' => 'required',
             'thumb' => 'required',
-            'sort_by'   => 'required',
 
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => ':attribute không được để trống',
+            'name.unique' => 'tên slider đã tồn tại',
+            'url.required' => 'đường dẫn phải nhập đầy đủ',
+            'thumb.required' => 'cần thêm ảnh cho slider',
         ];
     }
 }

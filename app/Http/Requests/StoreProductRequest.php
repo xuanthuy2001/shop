@@ -32,7 +32,6 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'name.required' => 'thuộc tính :attribute không được để trống',
-            'name.size' => 'trường  :attribute phải trên :min ký tự',
             'menu_id.required' => 'thuộc tính :attribute không được để trống',
             'content.required' => 'thuộc tính :attribute không được để trống',
             'description.required' => 'thuộc tính :attribute không được để trống',

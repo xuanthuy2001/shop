@@ -26,8 +26,7 @@
 
       <div class="form-group">
             <label>mô tả</label>
-            <input value="{{old('content')}}" name="content" type="text" class="form-control" maxlength="25"
-                  data-toggle="maxlength">
+            <input value="{{old('content')}}" name="content" type="text" class="form-control">
       </div>
       <div class="row">
             <div class="col-md-6">

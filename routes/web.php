@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MainController as ControllersMainController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,7 +15,7 @@ Route::post('login/store', [LoginController::class, 'store'])->name('login.store
 
 
 Route::middleware(['auth'])->group(function () {
-      Route::get('', [MainController::class, 'index']);
+
 
 
       Route::prefix('admin')->group(function () {
@@ -54,3 +55,5 @@ Route::middleware(['auth'])->group(function () {
             Route::post('upload/services', [UploadController::class, 'store']);
       });
 });
+
+Route::get('/', [ControllersMainController::class, 'index']);

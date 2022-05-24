@@ -1,6 +1,10 @@
 @extends('layout.master')
 
 @section('content')
+<div class="col-sm-4">
+      <a href="{{route('sliders.add')}}" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle mr-2"></i> Thêm
+            Sliders</a>
+</div>
 <table class="table table-striped table-centered mb-0">
       <thead>
             <tr>
@@ -24,7 +28,6 @@
                   </td>
                   <td>{!! \App\Helpers\helper::active($slider->active) !!}</td>
                   <td>{{$slider->sort_by}}</td>
-
 
                   <td class="table-action">
                         <a style="width :50px" class="action-icon" href="/admin/sliders/edit/{{$slider->id}}"> <i

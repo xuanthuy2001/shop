@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use Illuminate\Support\Str;
+
 class Helper
 {
       public static function menu($menus, $parent_id = 0, $char = '')
@@ -37,5 +39,47 @@ class Helper
       public function active($active = 0)
       {
             return $active == 0 ? '<span class=" btn btn-danger" >No</span>' : '<span class="btn btn-success  " >Yes</span> ';
+      }
+
+      public static function menus($menus, $parent_id = 0)
+      {
+
+            // <li class="active-menu">
+            //       <a href="index.html">Home</a>
+            //       <ul class="sub-menu">
+            //             <li><a href="index.html">Homepage 1</a></li>
+            //             <li><a href="home-02.html">Homepage 2</a></li>
+            //             <li><a href="home-03.html">Homepage 3</a></li>
+            //       </ul>
+            // </li>
+            $html = '';
+            foreach ($menus as $menu) {
+                  if ($menu->parent_id == $parent_id) {
+                        $html .= '
+                        <li class="active-menu" >
+                              <a href="/danh-muc/' . $menu->id  . '-' . str::slug($menu->name, '-') . '.html">
+                                    ' . $menu->name . '
+                              </a> ';
+
+                        if (self::isChild($menus, $menu->id)) {
+                              $html .= '<ul class="sub-menu">';
+                              $html .= self::menus($menus, $menu->id);
+                              $html .= '</ul>';
+                        }
+                        $html .= '</li>';
+                  }
+            }
+
+            return $html;
+      }
+
+      public static function isChild($menus, $id)
+      {
+            foreach ($menus as $menu) {
+                  if ($menu->parent_id == $id) {
+                        return true;
+                  }
+            }
+            return false;
       }
 }

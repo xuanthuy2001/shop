@@ -5,14 +5,13 @@
 <form action="{{route('sliders.add')}}" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
       <div class="form-group mb-3">
             <label for="validationCustom01"> tiêu đề</label>
-            <input value="{{old('name')}}" name="name" type="text" class="form-control" id="validationCustom01"   >
-      </div>
-  
-    <div class="form-group mb-3">
-            <label for="validationCustom01"> đường dẫn</label>
-            <input value="{{old('url')}}" name="url" type="text" class="form-control" id="validationCustom01"   >
+            <input value="{{old('name')}}" name="name" type="text" class="form-control" id="validationCustom01">
       </div>
 
+      <div class="form-group mb-3">
+            <label for="validationCustom01"> đường dẫn</label>
+            <input value="{{old('url')}}" name="url" type="text" class="form-control" id="validationCustom01">
+      </div>
 
       <div class="form-group">
             <label for="upload">Ảnh</label>
@@ -23,7 +22,7 @@
             <input type="hidden" name="thumb" id="thumb" value="{{old('thumb')}}">
       </div>
 
-       <div class="form-group">
+      <div class="form-group">
             <label for="sort_by">Sắp xếp</label>
             <input type="number" name="sort_by" value="{{old('sort_by')}}" class="form-control" id="sort_by">
       </div>

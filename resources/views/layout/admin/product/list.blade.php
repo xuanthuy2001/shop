@@ -1,6 +1,10 @@
 @extends('layout.master')
 
 @section('content')
+<div class="col-sm-4">
+      <a href="{{route('products.add')}}" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle mr-2"></i> Add
+            Products</a>
+</div>
 <table class="table table-striped table-centered mb-0">
       <thead>
             <tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
 use App\Http\Services\Slider\SliderService;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -16,7 +17,6 @@ class SliderController extends Controller
         $this->slider = $slider;
     }
 
-
     public function index()
     {
         return view('layout.admin.slider.list', [
@@ -24,7 +24,6 @@ class SliderController extends Controller
             'sliders' => $this->slider->getAll()
         ]);
     }
-
 
     public function create()
     {
@@ -36,25 +35,18 @@ class SliderController extends Controller
     public function store(SliderRequest $request)
     {
         $this->slider->insert($request);
-        return redirect()->back();
+        return redirect()->route('sliders.list');
     }
 
-
-    public function show($id)
+    public function show(Slider $slider)
     {
-        //
+        dd($slider);
+        return   view('layout.admin.slider.edit', [
+            'title' => 'trang chỉnh sửa slider',
+            'slider' => $slider,
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,14 +60,17 @@ class SliderController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $result = $this->slider->destroy($request);
+
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'message' => 'xóa  thành công '
+            ]);
+        }
+
+        return response()->json(['error' => true]);
     }
 }
