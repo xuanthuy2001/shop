@@ -34,7 +34,10 @@ class SliderController extends Controller
 
     public function store(SliderRequest $request)
     {
-        $this->slider->insert($request);
+        $result = $this->slider->insert($request);
+        if ($result === false) {
+            return redirect()->back();
+        }
         return redirect()->route('sliders.list');
     }
 

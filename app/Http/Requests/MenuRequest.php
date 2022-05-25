@@ -20,13 +20,7 @@ class MenuRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'name' => Rule::unique('menus')->where(
-                    function ($query) {
-                        // kiểm tra nếu thẻ cha chưa có thì thêm vào 
-                        // nếu thẻ cha có rồi thì kiểm tra trong thẻ con thuộc thẻ cha  đó đã tồn tại hay chưa 
-                        return $query->where('parent_id',  $this->parent_id);
-                    }
-                )
+
             ],
             'parent_id' => 'required',
             'content' => 'required',

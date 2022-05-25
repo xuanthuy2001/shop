@@ -1,4 +1,7 @@
 <header>
+      @php
+      $menus = \App\Helpers\Helper::menus($menus)
+      @endphp
       <!-- Header desktop -->
       <div class="container-menu-desktop">
             <!-- Topbar -->
@@ -18,9 +21,9 @@
                                     <li class="active-menu">
                                           <a href="index.html">Trang chủ</a>
                                     </li>
-                                    {!! \App\Helpers\Helper::menus($menus) !!}
+                                    {!! $menus !!}
                                     <li>
-                                          <a href="about.html">About</a>
+                                          <a href="about.html">Liên hệ</a>
                                     </li>
                               </ul>
                         </div>
@@ -46,7 +49,7 @@
       <div class="wrap-header-mobile">
             <!-- Logo moblie -->
             <div class="logo-mobile">
-                  <a href="index.html"><img src="/templade_customer/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+                  <a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
             </div>
 
             <!-- Icon header -->
@@ -60,7 +63,10 @@
                         <i class="zmdi zmdi-shopping-cart"></i>
                   </div>
 
-
+                  <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
+                        data-notify="0">
+                        <i class="zmdi zmdi-favorite-outline"></i>
+                  </a>
             </div>
 
             <!-- Button show menu -->
@@ -70,6 +76,23 @@
                   </span>
             </div>
       </div>
+
+
+      <!-- Menu Mobile -->
+      <div class="menu-mobile">
+
+
+            <ul class="main-menu-m">
+                  <li class="active-menu">
+                        <a href="index.html">Trang chủ</a>
+                  </li>
+                  {!! $menus !!}
+                  <li>
+                        <a href="about.html">Liên hệ</a>
+                  </li>
+            </ul>
+      </div>
+
 
 
 

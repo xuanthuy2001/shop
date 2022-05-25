@@ -16,20 +16,26 @@
       <div class="form-group">
             <label for="menu">Danh mục</label>
             <select name="parent_id" class="form-control">
-                  <option value="0" {{ $menu-> parent_id== 0? 'selected' : ''  }}>
+                  <option value="0" {{ $menu-> parent_id== 0? 'selected' : '' }}>
                         Danh mục cha
                   </option>
                   @foreach ($menus as $menuParent)
-                  <option value="{{ $menuParent ->  id  }}"
-                        {{ $menu-> parent_id== $menuParent -> id? 'selected' : '' }}>
+                  <option value="{{ $menuParent ->  id  }}" {{ $menu-> parent_id== $menuParent -> id? 'selected' : ''
+                        }}>
                         {{ $menuParent-> name }}
                   </option>
                   @endforeach
+            </select>
       </div>
+
+
+
+
+
       <div class="form-group">
             <label>mô tả</label>
-            <input value="{{$menu->content}}" name="content" type="text" class="form-control" maxlength="25"
-                  data-toggle="maxlength">
+            <input value="  {{$menu->content}}" name="content" type="text" class="form-control" 
+            >
       </div>
 
       <div class="form-group">
@@ -40,17 +46,27 @@
             </textarea>
 
       </div>
+      <div class=" form-group">
+            <label for="menu">Ảnh Sản Phẩm</label>
+            <input type="file" class="form-control" id="upload">
+            <div id="image_show">
+                  <a href="    {{$menu->thumb}}">
+                        <img src="    {{$menu->thumb}}" width="100px" alt="">
+                  </a>
+            </div>
+            <input type="hidden" name="thumb" id="thumb" value="{{$menu->thumb}}">
+      </div>
       <div class="form-group">
             <label for="">kích hoạt</label>
 
             <div class="custom-control custom-radio" action="">
-                  <input type="radio" value="1" name="active" id="active" class="custom-control-input"
-                        {{ $menu->active ==1 ? 'checked' : '' }}>
+                  <input type="radio" value="1" name="active" id="active" class="custom-control-input" {{ $menu->active
+                  ==1 ? 'checked' : '' }}>
                   <label for="active" class="custom-control-label"> có </label>
             </div>
             <div class="custom-control custom-radio" action="">
-                  <input type="radio" value="0" name="active" id="no_active" class="custom-control-input"
-                        {{ $menu->active ==0 ? 'checked' : '' }}>
+                  <input type="radio" value="0" name="active" id="no_active" class="custom-control-input" {{
+                        $menu->active ==0 ? 'checked' : '' }}>
                   <label for="no_active" class="custom-control-label"> không </label>
             </div>
       </div>
@@ -63,8 +79,8 @@
 
 @section('js')
 <script>
-// Replace the <textarea id="editor1"> with a CKEditor 4
-// instance, using default configuration.
-CKEDITOR.replace('editor1');
+      // Replace the <textarea id="editor1"> with a CKEditor 4
+      // instance, using default configuration.
+      CKEDITOR.replace('editor1');
 </script>
 @endsection

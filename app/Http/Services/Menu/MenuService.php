@@ -26,6 +26,7 @@ class MenuService
                         'parent_id' => (int) $request->input('parent_id'),
                         'description' => (string) $request->input('description'),
                         'content' => (string) $request->input('content'),
+                        'thumb' => (string) $request->input('thumb'),
                         'active' => (string) $request->input('active'),
                   ]);
                   Session::flash('success', 'tạo danh mục thành công');
@@ -58,10 +59,10 @@ class MenuService
                   }
 
                   $menu->name = (string)$Name;
-
-                  $menu->description = (int)$request->input('description');
-                  $menu->content = (int)$request->input('content');
-                  $menu->active = (int)$request->input('active');
+                  $menu->description = (string)$request->input('description');
+                  $menu->content = (string)$request->input('content');
+                  $menu->active = (string)$request->input('active');
+                  $menu->thumb = (string)$request->input('thumb');
                   $menu->save();
 
                   Session::flash('success', 'sửa thành công');
@@ -71,5 +72,11 @@ class MenuService
             }
 
             return true;
+      }
+      public function show()
+      {
+            return Menu::select('name', 'id', 'thumb')
+                  ->where('parent_id', 0)
+                  ->orderbyDesc('id')->get();
       }
 }

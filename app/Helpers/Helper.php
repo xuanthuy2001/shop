@@ -53,13 +53,15 @@ class Helper
             //       </ul>
             // </li>
             $html = '';
-            foreach ($menus as $menu) {
+            foreach ($menus as $key => $menu) {
                   if ($menu->parent_id == $parent_id) {
                         $html .= '
                         <li class="active-menu" >
                               <a href="/danh-muc/' . $menu->id  . '-' . str::slug($menu->name, '-') . '.html">
                                     ' . $menu->name . '
                               </a> ';
+                        // mỗi lần render sẽ làm mới ảng
+                        unset($menus[$key]);
 
                         if (self::isChild($menus, $menu->id)) {
                               $html .= '<ul class="sub-menu">';

@@ -38,4 +38,10 @@ class SliderService
 
             return false;
       }
+
+      public function show()
+      {
+            return Slider::select('name', 'url', 'thumb')
+                  ->get();
+      }
 }
