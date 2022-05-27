@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController as ControllersMainController;
+use App\Http\Controllers\MenuController as ControllersMenuController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -57,3 +58,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/', [ControllersMainController::class, 'index']);
+Route::post('/services/loadProduct', [App\Http\Controllers\MainController::class, 'loadProduct']);
+
+Route::get('danh-muc/{id}-{slug}.html', [ControllersMenuController::class, 'index']);
