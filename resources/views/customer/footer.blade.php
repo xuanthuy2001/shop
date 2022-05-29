@@ -259,3 +259,5 @@ $('.js-pscroll').each(function() {
 <!--===============================================================================================-->
 <script src="/templade_customer/js/main.js"></script>
 <script src="/templade_customer/js/public.js"></script>
+
+@yield('js_footer')

@@ -5,9 +5,11 @@ use App\Http\Controllers\Admin\Menus\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UploadController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController as ControllersMainController;
 use App\Http\Controllers\MenuController as ControllersMenuController;
+use App\Http\Controllers\ProductController as ControllersProductController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -57,7 +59,9 @@ Route::middleware(['auth'])->group(function () {
       });
 });
 
-Route::get('/', [ControllersMainController::class, 'index']);
-Route::post('/services/loadProduct', [App\Http\Controllers\MainController::class, 'loadProduct']);
+Route::get('/', [ControllersMainController::class, 'index'])->name('home');
+Route::post('/services/loadProduct', [App\Http\Controllers\MainController::class, 'loadProduct'])->name('loadProduct');
 
 Route::get('danh-muc/{id}-{slug}.html', [ControllersMenuController::class, 'index']);
+Route::get('san-pham/{id}-{slug}.html', [ControllersProductController::class, 'index']);
+Route::post('add_cart', [CartController::class, 'index']);

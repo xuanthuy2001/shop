@@ -19,7 +19,7 @@
                         <div class="menu-desktop">
                               <ul class="main-menu">
                                     <li class="active-menu">
-                                          <a href="index.html">Trang chủ</a>
+                                          <a href="{{route('home')}}">Trang chủ</a>
                                     </li>
                                     {!! $menus !!}
                                     <li>
