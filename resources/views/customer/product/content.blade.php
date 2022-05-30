@@ -110,6 +110,9 @@
                   </div>
 
                   <div class="col-md-6 col-lg-5 p-b-30">
+
+
+
                         <div class="p-r-50 p-t-5 p-lr-0-lg">
                               <h4 class="mtext-105 cl2 js-name-detail p-b-14">
                                     {{ $title }}
@@ -119,14 +122,15 @@
                                     {!! \App\Helpers\Helper::price($product->price, $product->price_sale) !!}
                               </span>
 
+
                               <p class="stext-102 cl3 p-t-23">
                                     {{$product->content}}
                               </p>
 
                               <!--  -->
+
+                              @if ($product->price!==null)
                               <div class="p-t-33">
-
-
                                     <div class="flex-w flex-r-m p-b-10">
                                           <div class="size-204 flex-w flex-m respon6-next">
                                                 <form action="/add_cart" method="Post">
@@ -155,6 +159,8 @@
                                           </div>
                                     </div>
                               </div>
+                              @endif
+
 
                               <!--  -->
                               <div class="flex-w flex-m p-l-100 p-t-40 respon7">
@@ -182,6 +188,10 @@
                                     </a>
                               </div>
                         </div>
+
+
+
+
                   </div>
             </div>
 
