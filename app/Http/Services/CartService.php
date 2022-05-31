@@ -42,8 +42,7 @@ class CartService
       }
       public function getProduct()
       {
-            $carts = Session::get('carts');
-
+            $carts = Session::get('carts');;
             if (is_null($carts)) return false;
             $product_id = array_keys($carts);
             return Product::select('id', 'name', 'price', 'price_sale', 'thumb')
@@ -55,6 +54,15 @@ class CartService
       {
             Session::put('carts', $request->input('num-product'));
 
+            return true;
+      }
+      public function remove($id)
+      {
+
+            $carts = Session::get('carts');
+
+            unset($carts[$id]);
+            Session::put('carts', $carts);
             return true;
       }
 }
