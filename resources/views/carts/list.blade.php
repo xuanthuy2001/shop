@@ -1,10 +1,12 @@
 @extends('customer.main')
 
 @section('content')
+
 <form class="bg0 p-t-75 p-b-85" method="post">
+      @include('layout.alert')
       @if (count($products) != 0 )
       <div class="container">
-            <div class="row">
+            <div class="row"> 
                   <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
                         <div class="m-l-25 m-r--38 m-lr-0-xl">
                               <div class="wrap-table-shopping-cart">
@@ -110,9 +112,43 @@
                                           </span>
                                     </div>
                               </div>
+                              <div class="flex-w flex-t bor12 p-b-13  ">
 
-                              <button type="submit" name="num-product[{{$product->id}}]" formaction="/update_cart"
-                                    class=" flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                                    <div class="p-t-15">
+                                          <span class="stext-112 cl8">
+                                                Thông tin khách hàng
+                                          </span>
+
+                                          <div class="bor8 bg0 m-b-12">
+                                                <input required class="stext-111 cl8 plh3 size-111 p-lr-15" name="name"
+                                                      type="text" placeholder="tên khách hàng">
+                                          </div>
+
+                                          <div class="bor8 bg0 m-b-12">
+                                                <input required class="stext-111 cl8 plh3 size-111 p-lr-15" name="phone"
+                                                      type="text" placeholder="số điện thoại">
+                                          </div>
+                                          <div class="bor8 bg0 m-b-12">
+                                                <input required class="stext-111 cl8 plh3 size-111 p-lr-15"
+                                                      name="address" type="text" placeholder="địa chỉ giao hàng">
+                                          </div>
+                                          <div class="bor8 bg0 m-b-12">
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" name="email"
+                                                      type="text" placeholder="Email liên hệ">
+                                          </div>
+                                          <div required class="bor8 bg0 m-b-12">
+                                                <textarea class="stext-111 cl8 plh3 size-111 p-lr-15"
+                                                      name="content"></textarea>
+                                          </div>
+
+
+                                    </div>
+
+                              </div>
+
+                              <button type="submit" name="num-product[{{$product->id}}]" formaction="/carts"
+                                    class=" flex-c-m stext-101  cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                                    Đặt hàng
                               </button>
 
                         </div>
@@ -125,5 +161,4 @@
       <h1 style="color:red">giỏ hàng trống</h1>
 </div>
 @endif
-
 @endsection

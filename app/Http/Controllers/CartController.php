@@ -26,7 +26,6 @@ class CartController extends Controller
     public function show()
     {
         $products = $this->cartService->getProduct();
-
         return view('carts.list', [
             'title' => 'giỏ hàng',
             'products' => $products,
@@ -45,5 +44,11 @@ class CartController extends Controller
 
         $this->cartService->remove($id);
         return redirect('/carts');
+    }
+    public function addcart(Request $request)
+    {
+
+        $this->cartService->addCart($request);
+        return redirect()->back();
     }
 }
